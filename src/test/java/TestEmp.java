@@ -38,6 +38,8 @@ public class TestEmp {
         for(Map map1 : list){
             System.out.println(map1.get("ename"));
             System.out.println(map1.get("dname"));
+            System.out.println(map1.get("dname"));
+            
         }*/
 
 
