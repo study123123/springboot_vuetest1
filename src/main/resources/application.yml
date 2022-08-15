@@ -1,0 +1,17 @@
+#修改tomcat端口为8081
+server:
+  port: 8081
+
+#数据源信息
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/zyf?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=UTC
+    username: root
+    password:
+
+#mybatis配置
+#扫描mapper文件  配置实体类别名
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.jxd.emp.model

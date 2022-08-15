@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--mapper文件替代原先的dao层实现类-->
+<!--namespace对应的是接口的全路径名称-->
+<mapper namespace="com.jxd.emp.dao.IMenuDao">
+
+    <resultMap id="subMenu" type="Menu">
+        <id column="sid" property="id"/>
+        <result column="stitle" property="title"/>
+        <result column="spath" property="path"/>
+    </resultMap>
+
+    <resultMap id="menuList" type="Menu">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="path" property="path"/>
+        <collection property="subMenu" resultMap="subMenu"/>
+    </resultMap>
+
+
+    <select id="getMenuList" resultMap="menuList">
+        SELECT m1.id ,m1.title,m1.path
+,m2.id as sid ,m2.title as stitle,m2.path as spath FROM menu m1
+inner join menu m2 on m1.id = m2.mid
+
+    </select>
+
+</mapper>
